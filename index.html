@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header and Navigation Bar -->
+    <header>
+        <nav>
+            <img src="logo.jpeg" alt="Logo" class="logo">
+            <h3>🆃🅾 🅳🅾 🅻🅸🆂🆃</h3>
+            <ul class="nav-links">
+                <li><a href="#" onclick="restartPage()">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- To-Do List Container -->
+    <div class="todo-container">
+        <h1>꧁𓊈𒆜🅰🅳🅳 🅸🆃🅴🅼🆂𒆜𓊉꧂</h1>
+        <input type="text" id="taskInput" placeholder="Enter a new task">
+        <button onclick="addTask()">Add Task</button>
+        <div id="todo-list"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

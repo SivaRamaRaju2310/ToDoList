@@ -1,0 +1,260 @@
+/* General Styling */
+body {
+    background-image: url('background1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    font-family: 'Desmond', sans-serif; /* Desmond font */
+    perspective: 1000px;
+}
+
+/* Header and Navigation Styling */
+header {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.4);
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease-in-out;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 700;
+    font-size: 16px;
+    position: relative;
+    display: inline-block;
+    padding: 5px 10px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+/* Navigation link animation */
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #ec190e; /* Animation color */
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+.nav-links a:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.nav-links a:hover {
+    color: #ec0a9d; /* Color on hover */
+    transform: translateY(-3px); /* Subtle lift effect */
+}
+
+/* To-Do List Container Styling */
+.todo-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    margin: 50px auto;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    transform: rotateX(0deg);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.todo-container:hover {
+    transform: rotateX(10deg);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Animated Heading */
+.todo-container h1 {
+    margin-bottom: 20px;
+    font-weight: 900;
+    font-size: 30px;
+    animation: colorChange 3s infinite, fadeInOut 3s infinite; /* Animation added */
+}
+
+/* Keyframes for color-changing and fade-in-out effect */
+@keyframes colorChange {
+    0% { color: #d8ef07; } /* Dark Blue */
+    25% { color: #ec190e; } /* Dark Slate */
+    50% { color: #025357; } /* Dark Teal */
+    75% { color: #06db11; } /* Dark Gray */
+    100% { color: #ec0a9d; } /* Darker Blue */
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 80%;
+    margin-bottom: 20px;
+    border: 2px solid #e71a07;
+    border-radius: 4px;
+    outline: none;
+    font-weight: 500;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(113, 193, 10, 0.885);
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: rgb(233, 5, 5);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background-color: #6dbbd2;
+}
+
+/* To-Do Items Styling */
+.todo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 2px solid #8B4513;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.todo-item {
+    flex-grow: 1;
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #9b05f8;
+    transition: color 0.3s ease-in-out, text-decoration 0.3s ease-in-out;
+}
+
+/* Checkbox Styling */
+/* Checkbox Styling */
+input[type="checkbox"] {
+    transform: scale(1.2); /* Slightly larger checkbox for better visibility */
+    cursor: pointer;
+    margin-right: 10px; /* Spacing between checkbox and label */
+}
+
+input[type="checkbox"]:checked + .todo-item {
+    text-decoration: line-through;
+    color: #f30670;
+}
+
+/* Responsive Checkbox */
+@media (max-width: 768px) {
+    input[type="checkbox"] {
+        transform: scale(1.5); /* Increase size slightly for better touch interaction */
+    }
+}
+
+@media (max-width: 480px) {
+    input[type="checkbox"] {
+        transform: scale(1.8); /* Further increase size for very small screens */
+        margin-right: 5px; /* Adjust spacing for smaller screens */
+    }
+}
+
+
+/* 3D Effect for To-Do Items */
+.todo:hover {
+    transform: translateZ(20px) rotateX(5deg);
+    background-color: rgba(200, 203, 200, 0.7);
+    box-shadow: 0 4px 8px rgba(171, 14, 14, 0.415);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+
+    .todo-container {
+        margin: 20px;
+        width: auto;
+        box-shadow: none;
+    }
+
+    .todo-container h1 {
+        font-size: 24px;
+    }
+
+    input[type="text"] {
+        width: 90%;
+    }
+
+    button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        height: 30px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .todo-container {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .todo-container h1 {
+        font-size: 20px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+    }
+
+    button {
+        font-size: 12px;
+    }
+}
